@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.basicui.databinding.FragmentMainBinding
+import android.widget.TextView
+import com.google.android.material.slider.Slider
 import splitties.toast.longToast
 import splitties.toast.toast
 
@@ -40,6 +42,11 @@ class MainFragment : Fragment() {
 
         binding.buttonMain.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        view.findViewById<Slider>(R.id.slider).addOnChangeListener { slider, value, fromUser ->
+            val textView = binding.textviewMain
+            textView.text = value.toString()
         }
     }
 
