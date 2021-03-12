@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.slider.Slider
 import splitties.toast.longToast
 import splitties.toast.toast
 
@@ -34,6 +36,11 @@ class MainFragment : Fragment() {
 
         view.findViewById<Button>(R.id.button_main).setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        view.findViewById<Slider>(R.id.slider).addOnChangeListener { slider, value, fromUser ->
+            val textView = view.findViewById<TextView>(R.id.textview_main)
+            textView.text = value.toString()
         }
     }
 }
