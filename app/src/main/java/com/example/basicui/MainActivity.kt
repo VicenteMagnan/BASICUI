@@ -1,11 +1,17 @@
 package com.example.basicui
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import splitties.alertdialog.*
+import splitties.toast.toast
+import splitties.activities.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,9 +20,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
+            showAlertDialog()
+            //start<SecondaryActivity>()
+        }
+
+        findViewById<FloatingActionButton>(R.id.internet).setOnClickListener {
+            browse("www.chillcoding.com")
+        }
+
+        findViewById<FloatingActionButton>(R.id.mail).setOnClickListener {
+            sendEmail("dylan.andre@ynov.com", "Hi", "Hello !")
         }
     }
 
@@ -33,6 +47,37 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun showAlertDialog() {
+        alertDialog {
+            messageResource = R.string.text_alert
+            okButton { showAlertDialog() }
+            cancelButton()
+        }.onShow {
+            positiveButton.setText(R.string.action_like)
+        }.show()
+    }
+
+    private fun browse(url: String) {
+        var browser = Intent(Intent.ACTION_VIEW, Uri.parse("https://" + url))
+        startActivity(browser)
+    }
+
+    private fun sendEmail(to: String, subject: String, msg: String) {
+        val emailIntent = Intent(Intent.ACTION_SEND)
+
+        emailIntent.data = Uri.parse("mailto:")
+        emailIntent.type = "text/plain"
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(to))
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        emailIntent.putExtra(Intent.EXTRA_TEXT, msg)
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, getString(R.string.title_send_email)))
+        } catch (ex: ActivityNotFoundException) {
+            toast(R.string.text_no_email_client)
         }
     }
 }
