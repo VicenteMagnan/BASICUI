@@ -1,3 +1,5 @@
-# Challenge BASICUI
+# Challenge BASIC-UI
 
-ANDRE Dylan, MAGNAN Vicente, PATRUNO Gaétan, PEN Bunsarak
+Developed by :
+- MAGNAN Vicente
+- ANDRE Dylan
