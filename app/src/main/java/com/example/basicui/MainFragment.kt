@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.basicui.databinding.FragmentMainBinding
 import splitties.toast.longToast
 import splitties.toast.toast
 
@@ -15,12 +15,18 @@ import splitties.toast.toast
  */
 class MainFragment : Fragment() {
 
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
+            inflater: LayoutInflater,
+            container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        val view = binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,12 +34,17 @@ class MainFragment : Fragment() {
 
         longToast(R.string.text_fragment_created)
 
-        view.findViewById<Button>(R.id.button_toast).setOnClickListener {
+        binding.buttonToast.setOnClickListener {
             toast(R.string.text_short_message)
         }
 
-        view.findViewById<Button>(R.id.button_main).setOnClickListener {
+        binding.buttonMain.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

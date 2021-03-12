@@ -11,25 +11,30 @@ import android.widget.TimePicker
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.example.basicui.databinding.FragmentSecondBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class SecondFragment : Fragment() {
 
+    private var _binding: FragmentSecondBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
+            inflater: LayoutInflater,
+            container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(binding.root, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_second).setOnClickListener {
+        binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
 
@@ -39,5 +44,10 @@ class SecondFragment : Fragment() {
             val caption = "Il est -" + timePicker.hour.toString() + "h" + timePicker.minute.toString()
             Snackbar.make(view, caption, Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

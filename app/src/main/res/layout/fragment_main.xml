@@ -7,31 +7,31 @@
     tools:context=".MainFragment">
 
     <TextView
-        android:id="@+id/textview_main"
+        android:id="@+id/textviewMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_main_fragment"
-        app:layout_constraintBottom_toTopOf="@id/button_main"
+        app:layout_constraintBottom_toTopOf="@id/buttonMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_toast"
+        android:id="@+id/buttonToast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/toast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_main" />
+        app:layout_constraintTop_toBottomOf="@id/textviewMain" />
 
     <Button
-        android:id="@+id/button_main"
+        android:id="@+id/buttonMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_toast" />
+        app:layout_constraintTop_toBottomOf="@id/buttonToast" />
 </androidx.constraintlayout.widget.ConstraintLayout>
