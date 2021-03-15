@@ -40,10 +40,6 @@ class MainFragment : Fragment() {
             toast(R.string.text_short_message)
         }
 
-        binding.buttonMain.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-
         view.findViewById<Slider>(R.id.slider).addOnChangeListener { slider, value, fromUser ->
             val textView = binding.textviewMain
             textView.text = value.toString()

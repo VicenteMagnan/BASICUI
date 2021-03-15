@@ -10,6 +10,7 @@
         android:id="@+id/slider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:valueFrom="0.0"
         android:valueTo="100.0"
         app:layout_constraintTop_toTopOf="@id/textviewMain"/>
@@ -19,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_main_fragment"
-        app:layout_constraintBottom_toTopOf="@id/buttonMain"
+        app:layout_constraintBottom_toTopOf="@id/buttonToast"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,12 +35,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textviewMain" />
 
-    <Button
-        android:id="@+id/buttonMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonToast" />
 </androidx.constraintlayout.widget.ConstraintLayout>

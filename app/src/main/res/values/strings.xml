@@ -16,4 +16,8 @@
     <string name="action_like">Confirm</string>
     <string name="title_send_email">Email from Android App</string>
     <string name="text_no_email_client">No client email</string>
+    <string name="home">Home</string>
+    <string name="timePicker">Times</string>
+    <string name="userForm">Forms</string>
+    <string name="other">Others</string>
 </resources>
