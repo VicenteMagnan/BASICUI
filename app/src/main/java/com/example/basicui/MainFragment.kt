@@ -1,13 +1,17 @@
 package com.example.basicui
 
+import android.content.res.ColorStateList
+import android.graphics.Color.blue
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.basicui.databinding.FragmentMainBinding
 import android.widget.TextView
+import com.google.android.material.chip.Chip
 import com.google.android.material.slider.Slider
 import splitties.toast.longToast
 import splitties.toast.toast
@@ -43,6 +47,24 @@ class MainFragment : Fragment() {
         view.findViewById<Slider>(R.id.slider).addOnChangeListener { slider, value, fromUser ->
             val textView = binding.textviewMain
             textView.text = value.toString()
+        }
+
+        view.findViewById<Chip>(R.id.chipBlue).setOnCheckedChangeListener{chip, isChecked ->
+            chip as Chip
+            if (isChecked) {
+                chip.setChipBackgroundColorResource(R.color.blue)
+            } else {
+                chip.setChipBackgroundColorResource(R.color.black)
+            }
+        }
+
+        view.findViewById<Chip>(R.id.chipRed).setOnCheckedChangeListener{chip, isChecked ->
+            chip as Chip
+            if (isChecked) {
+                chip.setChipBackgroundColorResource(R.color.red)
+            } else {
+                chip.setChipBackgroundColorResource(R.color.black)
+            }
         }
     }
 
