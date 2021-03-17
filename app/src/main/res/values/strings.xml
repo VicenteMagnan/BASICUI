@@ -20,4 +20,11 @@
     <string name="timePicker">Times</string>
     <string name="userForm">Forms</string>
     <string name="other">Others</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="third_fragment_label">Third Fragment</string>
+    <string name="title">Title</string>
+    <string name="secondary_text">Secondary Text</string>
+    <string name="supporting_text">User description</string>
+    <string name="favorite">Favorites</string>
 </resources>

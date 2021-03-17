@@ -20,8 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_alert"
-        android:visibility="invisible" />
+        app:srcCompat="@android:drawable/ic_dialog_alert" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/internet"
@@ -29,8 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        android:visibility="invisible" />
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/mail"
@@ -38,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        android:visibility="invisible" />
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -35,7 +35,7 @@ class SecondFragment : Fragment() {
         super.onViewCreated(binding.root, savedInstanceState)
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment)
         }
 
         val timePicker = view.findViewById<TimePicker>(R.id.time_picker)
